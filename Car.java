@@ -171,12 +171,13 @@ class Car {
     }
 
     void display_all_cars(Car c[]) {
+        System.out.println("\n==============================================================================");
         for(int i =0;i<c.length;i++) {
             System.out.println("CAR ID = "+c[i].car_id);
             System.out.println("CAR COMPANY NAME = "+c[i].car_company);
             System.out.println("CAR NAME = "+c[i].car_name);
             System.out.println("CAR PRICE = Rs "+c[i].car_price);
-            System.out.println("================================================");
+            System.out.println("==============================================================================");
         }
     }
 

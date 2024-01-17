@@ -1,12 +1,20 @@
 import java.util.*;
 
 public class Main {
-    static int size=1;
+    static int size=5;
     static ArrayList<customer> userData = new ArrayList<>();
     
     public static void main(String[] args) {
-        customer c1 = new customer("qas123", "qasim", "12345", "9876543210");
+        customer c1 = new customer("qas123", "Qasim Lokhandwala", "12345", "9876543210");
+        customer c2 = new customer("kunal12", "Kunal Prajapati", "12345", "9839743210");
+        customer c3 = new customer("kunj34", "Kunj Patel", "12345", "9876582930");
+        customer c4 = new customer("nish78", "Nishit Kumawat", "12345", "9563543880");
+        customer c5 = new customer("kris92", "Krish Zinzuwadia", "12345", "9895173210");
         userData.add(c1);
+        userData.add(c2);
+        userData.add(c3);
+        userData.add(c4);
+        userData.add(c5);
         int intial_choice = 0;
         while (true) {
             intial_choice = homePage();
@@ -22,24 +30,47 @@ public class Main {
             case 1:
                 register();
                 login();
+                menu();
                 break;
             case 2:
                 login();
+                menu();
                 break;
         }
-
-            Car call = new Car();
-            Car [] Store = call.store();
-            call.display_all_cars(Store);
-            System.out.println("hi");
-            call.search_by_company(Store);
-            call.search_by_price(Store);
+        System.out.println("THANK YOU FOR VISITING!");
+    }        
         
-    }
+    
     
     //  METHOD TO SHOW STOCK
-    static void showStock(){
-
+    static void menu(){
+        Scanner sc = new Scanner(System.in);
+        Car car = new Car();
+        Car[] Stock = car.store();
+        int c = 0;
+        while (c!=5) {
+            System.out.println("==============================================================================");
+            System.out.println("1 . SEARCH BY COMPANY\t 2 . SEARCH BY NAME\t 3 . SHOW CARS\n4 . SEARCH BY PRICE\t 5 . EXIT");
+            System.out.println("==============================================================================");
+            System.out.print("\nENTER YOUR CHOICE : ");
+            c = sc.nextInt();
+            switch (c) {
+                case 1:
+                    car.search_by_company(Stock);
+                break;
+                case 2:
+                    car.search_by_name(Stock);
+                break;
+                case 3:
+                    car.display_all_cars(Stock);
+                break;
+                case 4:
+                    car.search_by_price(Stock);
+                break;
+                default:
+                break;
+            }
+        }
     }
     //  STARTING OF APPLICATION
     static public int homePage(){
