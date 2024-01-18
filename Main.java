@@ -70,6 +70,10 @@ public class Main {
                 case 4:
                     car.search_by_price(Stock);
                 break;
+                case 5:
+                    purchase p = new purchase();
+                    p.purchase_car(Stock);
+                break;
                 case 6:
                     services s = new services();
                     s.showMenu();
