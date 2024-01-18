@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 class Car {
+    final static String RED = "\u001b[31;1m";
+    final static String YELLOW = "\u001b[33m";
+    final static String reset = "\u001b[0m";
     Scanner sc = new Scanner(System.in);
     int car_id;
     String car_name;
@@ -171,13 +174,13 @@ class Car {
     }
 
     void display_all_cars(Car c[]) {
-        System.out.println("\n==============================================================================");
+        System.out.println(YELLOW+"\n==============================================================================");
         for(int i =0;i<c.length;i++) {
-            System.out.println("CAR ID = "+c[i].car_id);
+            System.out.println(YELLOW+"CAR ID = "+c[i].car_id);
             System.out.println("CAR COMPANY NAME = "+c[i].car_company);
             System.out.println("CAR NAME = "+c[i].car_name);
             System.out.println("CAR PRICE = Rs "+c[i].car_price);
-            System.out.println("==============================================================================");
+            System.out.println("=============================================================================="+reset);
         }
     }
 

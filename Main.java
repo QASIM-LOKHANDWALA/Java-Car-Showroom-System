@@ -1,6 +1,9 @@
 import java.util.*;
 
 public class Main {
+    final static String RED = "\u001b[31;1m";
+    final static String YELLOW = "\u001b[33m";
+    final static String reset = "\u001b[0m";
     static int size=5;
     static ArrayList<customer> userData = new ArrayList<>();
     
@@ -49,10 +52,10 @@ public class Main {
         Car[] Stock = car.store();
         int c = 0;
         while (c!=5) {
-            System.out.println("==============================================================================");
-            System.out.println("1 . SEARCH BY COMPANY\t 2 . SEARCH BY NAME\t 3 . SHOW CARS\n4 . SEARCH BY PRICE\t 5 . EXIT");
-            System.out.println("==============================================================================");
-            System.out.print("\nENTER YOUR CHOICE : ");
+            System.out.println(RED+"==============================================================================");
+            System.out.println("1 . SEARCH BY COMPANY\t 2 . SEARCH BY NAME\t 3 . SHOW CARS\n4 . SEARCH BY PRICE\t 5 . PURCHASE      \t 6 . SERVICES");
+            System.out.println("================================<7 . EXIT>====================================");
+            System.out.print("\nENTER YOUR CHOICE : "+reset);
             c = sc.nextInt();
             switch (c) {
                 case 1:
@@ -67,6 +70,12 @@ public class Main {
                 case 4:
                     car.search_by_price(Stock);
                 break;
+                case 6:
+                    services s = new services();
+                    s.showMenu();
+                break;
+                case 7:
+                return;
                 default:
                 break;
             }
@@ -75,10 +84,10 @@ public class Main {
     //  STARTING OF APPLICATION
     static public int homePage(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("=========================WELCOME=========================");
+        System.out.println(YELLOW+"=========================WELCOME=========================");
         System.out.println("1 . << REGISTER >>\t 2 . << LOGIN >>");
         System.out.println("=========================================================");
-        System.out.print("\nENTER YOUR CHOICE : ");
+        System.out.print("\nENTER YOUR CHOICE : "+reset);
         int intial_choice = sc.nextInt();
          
         return intial_choice;
