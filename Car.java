@@ -10,13 +10,13 @@ class Car {
     double car_price;
     String car_company;
     void display(){
-        System.out.println("================================================");
+        System.out.println("==============================================================================");
 
         System.out.println("CAR ID = "+car_id);
         System.out.println("CAR COMPANY NAME = "+car_company);
         System.out.println("CAR NAME = "+car_name);
         System.out.println("CAR PRICE = Rs "+car_price);
-        System.out.println("================================================");
+        System.out.println("==============================================================================");
     }
     void search_by_company(Car[] c){
         boolean flag = false;

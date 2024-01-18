@@ -1,10 +1,14 @@
 import java.util.*;
 
 class purchase{
+    final static String RED = "\u001b[31;1m";
+    final static String YELLOW = "\u001b[33m";
+    final static String CYAN = "\u001b[36m";
+    final static String reset = "\u001b[0m";
     Scanner sc = new Scanner(System.in);
     void purchase_car(Car c[]){
         boolean flag = true;
-        System.out.println("=================== Welcome =================");
+        System.out.println(CYAN+"================================== Welcome ===================================\n");
         while(flag){
             System.out.print("Enter Car ID to purchase the Car = ");
             int selected_car = sc.nextInt();
@@ -12,15 +16,15 @@ class purchase{
             for(int i = 0 ; i<c.length ; i++){
                 if(selected_car == c[i].car_id){
                     flag = false;
-                    System.out.println("Your Selected Car is");
+                    System.out.println("Your Selected Car  : ");
                     c[i].display();
-                    System.out.print("Do you want to purchase this Car (If yes enter 'Y' or no enter 'N') = ");
+                    System.out.print("\nDo you want to purchase this Car (If yes enter 'Y' or no enter 'N') : ");
                     String temp = sc.nextLine();
                     if(temp.equalsIgnoreCase("Y")){
                         System.out.println("Select Payment Mode ");
                         System.out.println("1. EMI");
                         System.out.println("2. Cash");
-                        System.out.print("Enter Choice = ");
+                        System.out.print("Enter Choice : ");
                         int ch = sc.nextInt();
                         if(ch==1){
                             emi(c[i].car_price);
@@ -30,7 +34,6 @@ class purchase{
                         }
                     }
                     else{
-                        System.out.println("Thanks for Visiting!!");
                         flag = false;
                     }
                     
@@ -39,7 +42,7 @@ class purchase{
         }
     }
     void emi(double amount){
-        System.out.println("============ Wekcome to EMI calculator ==========");
+        System.out.println("\n========================== Welcome to EMI calculator =========================");
         System.out.println("Select Period From Below List");
         System.out.println("1. 24 Months ");
         System.out.println("2. 48 Months ");
@@ -64,6 +67,6 @@ class purchase{
                 / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
         System.out.printf("Your Monthly EMI is : Rs %.2f\n",emi);
-        System.out.printf("Total Amount after adding Interest : Rs %.2f\n",(emi*tenureInYears*12));
+        System.out.printf("Total Amount after adding Interest : Rs %.2f \n"+reset,(emi*tenureInYears*12));
     }
 }

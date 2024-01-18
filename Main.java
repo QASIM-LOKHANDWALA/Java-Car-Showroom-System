@@ -40,7 +40,7 @@ public class Main {
                 menu();
                 break;
         }
-        System.out.println("THANK YOU FOR VISITING!");
+        System.out.println(purchase.CYAN+"THANK YOU FOR VISITING!"+reset);
     }        
         
     
@@ -52,11 +52,12 @@ public class Main {
         Car[] Stock = car.store();
         int c = 0;
         while (c!=5) {
-            System.out.println(RED+"==============================================================================");
+            System.out.println(RED+"\n==============================================================================");
             System.out.println("1 . SEARCH BY COMPANY\t 2 . SEARCH BY NAME\t 3 . SHOW CARS\n4 . SEARCH BY PRICE\t 5 . PURCHASE      \t 6 . SERVICES");
-            System.out.println("================================<7 . EXIT>====================================");
+            System.out.println("===============================< 7 . EXIT >===================================");
             System.out.print("\nENTER YOUR CHOICE : "+reset);
             c = sc.nextInt();
+            System.out.println();
             switch (c) {
                 case 1:
                     car.search_by_company(Stock);
