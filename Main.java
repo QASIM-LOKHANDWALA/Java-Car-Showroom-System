@@ -41,7 +41,7 @@ public class Main {
                 menu();
                 break;
         }
-        System.out.println(YELLOW+"THANK YOU FOR VISITING!"+reset);
+        System.out.println(YELLOW+"\n\nTHANK YOU FOR VISITING!"+reset);
     }        
         
     
