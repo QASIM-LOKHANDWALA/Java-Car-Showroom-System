@@ -8,7 +8,7 @@ class purchase{
     Scanner sc = new Scanner(System.in);
     void purchase_car(Car c[]){
         boolean flag = true;
-        System.out.println(CYAN+"================================== Welcome ===================================\n");
+        System.out.println(YELLOW+"================================== Welcome ===================================\n");
         while(flag){
             System.out.print("Enter Car ID to purchase the Car = ");
             int selected_car = sc.nextInt();
@@ -66,7 +66,11 @@ class purchase{
         double emi = (principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments))
                 / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
-        System.out.printf("Your Monthly EMI is : Rs %.2f\n",emi);
-        System.out.printf("Total Amount after adding Interest : Rs %.2f \n"+reset,(emi*tenureInYears*12));
+        System.out.println("\n--------------------------------------------------------------------------------");
+        System.out.println("|\t\tName : "+Main.userData.get(Main.index).name+"                              \t\t|");
+        System.out.println("|\t\tMobile number : "+Main.userData.get(Main.index).mobileNumber+"                           \t\t|");
+        System.out.printf("|\t\tYour Monthly EMI is : Rs %.2f           \t\t\t|\n",emi);
+        System.out.printf("|\t\tTotal Amount after adding Interest : Rs %.2f\t\t|\n",(emi*tenureInYears*12));
+        System.out.println("--------------------------------------------------------------------------------");
     }
 }

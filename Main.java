@@ -5,6 +5,7 @@ public class Main {
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     static int size=5;
+    static int index;
     static ArrayList<customer> userData = new ArrayList<>();
     
     public static void main(String[] args) {
@@ -40,7 +41,7 @@ public class Main {
                 menu();
                 break;
         }
-        System.out.println(purchase.CYAN+"THANK YOU FOR VISITING!"+reset);
+        System.out.println(YELLOW+"THANK YOU FOR VISITING!"+reset);
     }        
         
     
@@ -114,6 +115,7 @@ public class Main {
                 if(!(id.equals(userData.get(i).id) && pass.equals(userData.get(i).password))){
                     continue;
                 }else{
+                    index=i;
                     log = true;
                     break;
                 }
