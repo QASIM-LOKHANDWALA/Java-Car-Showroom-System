@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class services {
-    final static String RED = "\u001b[31;1m";
+    final static String GREEN = "\u001b[32;1m";
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     Car car = new Car();

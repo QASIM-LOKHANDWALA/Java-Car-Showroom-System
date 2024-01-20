@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    final static String RED = "\u001b[31;1m";
+    final static String GREEN = "\u001b[32;1m";
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     static int size=5;
@@ -53,7 +53,7 @@ public class Main {
         Car[] Stock = car.store();
         int c = 0;
         while (c!=5) {
-            System.out.println(RED+"\n==============================================================================");
+            System.out.println(GREEN+"\n==============================================================================");
             System.out.println("1 . SEARCH BY COMPANY\t 2 . SEARCH BY NAME\t 3 . SHOW CARS\n4 . SEARCH BY PRICE\t 5 . PURCHASE      \t 6 . SERVICES");
             System.out.println("===============================< 7 . EXIT >===================================");
             System.out.print("\nENTER YOUR CHOICE : "+reset);
@@ -105,8 +105,11 @@ public class Main {
         String pass;
 
         boolean log = false;
-
+        int z=0;
         while (!log) {
+            if(z>0){
+                System.out.println("\nINAVLID USER ID OR PASSWORD !!\n");
+            }
             System.out.print("Enter User ID: ");
             id = sc.next();
             System.out.print("Enter password: ");
@@ -120,6 +123,7 @@ public class Main {
                     break;
                 }
             }
+            z++;
         }
          
     }

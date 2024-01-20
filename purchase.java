@@ -18,8 +18,17 @@ class purchase{
                     flag = false;
                     System.out.println("Your Selected Car  : ");
                     c[i].display();
-                    System.out.print("\nDo you want to purchase this Car (If yes enter 'Y' or no enter 'N') : ");
-                    String temp = sc.nextLine();
+                    String temp;
+                    while(true){
+                        System.out.print("\nDo you want to purchase this Car (If yes enter 'Y' or no enter 'N') : ");
+                        temp = sc.nextLine();
+                        if(temp.equalsIgnoreCase("Y")||temp.equalsIgnoreCase("N")){
+                            break;
+                        }else{
+                            System.out.println("\nINVALID INPUT");
+                            continue;
+                        }
+                    }
                     if(temp.equalsIgnoreCase("Y")){
                         System.out.println("\nSelect Payment Mode ");
                         System.out.println("1. EMI");
