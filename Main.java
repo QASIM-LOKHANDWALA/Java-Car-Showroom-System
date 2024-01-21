@@ -19,33 +19,58 @@ public class Main {
         userData.add(c3);
         userData.add(c4);
         userData.add(c5);
-        int intial_choice = 0;
+        int startingChoice = 0;
         while (true) {
-            intial_choice = homePage();
-            if(intial_choice==1 || intial_choice==2){
+            startingChoice = starting();
+            if(startingChoice==1 || startingChoice==2){
                 break;
             }else{
-                intial_choice = homePage();
+                System.out.println("INVALID CHOICE");
+                startingChoice = starting();
             }
         }
-
         System.out.println();
-        switch (intial_choice) {
-            case 1:
-                register();
-                login();
-                menu();
-                break;
-            case 2:
-                login();
-                menu();
-                break;
+        if(startingChoice==1){
+            admin a = new admin();
+            a.adminLogin();
+        }else{
+            int intial_choice=0;
+            while (true) {
+                intial_choice = homePage();
+                if(intial_choice==1 || intial_choice==2){
+                    break;
+                }else{
+                    intial_choice = homePage();
+                }
+            }
+    
+            System.out.println();
+            switch (intial_choice) {
+                case 1:
+                    register();
+                    login();
+                    menu();
+                    break;
+                case 2:
+                    login();
+                    menu();
+                    break;
+            }
+            System.out.println(YELLOW+"\n\nTHANK YOU FOR VISITING!"+reset);
         }
-        System.out.println(YELLOW+"\n\nTHANK YOU FOR VISITING!"+reset);
     }        
         
     
-    
+    static int starting(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println(YELLOW+"=========================WELCOME=========================");
+        System.out.println("1 . << ADMIN >>\t 2 . << CUSTOMER >>");
+        System.out.println("=========================================================");
+        System.out.print("\nENTER YOUR CHOICE : "+reset);
+        int intial_choice = sc.nextInt();
+         
+        return intial_choice;
+    } 
     //  METHOD TO SHOW STOCK
     static void menu(){
         Scanner sc = new Scanner(System.in);
