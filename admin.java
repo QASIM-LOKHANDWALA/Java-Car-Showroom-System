@@ -31,9 +31,9 @@ public class admin {
     void makeChanges(){
         int choice = 0;
         while (choice!=4) {
-            System.out.println(BLUE+"\nWHAT WOULD YOU LIKE TO EDIT ?");
+            System.out.println(BLUE+"\nWHAT WOULD YOU LIKE TO DO ?");
             System.out.println("\n==============================================================================");
-            System.out.println("1 . SHOW CARS\t2 . EDIT NAME\t3 . EDIT PRICE\t4 . EXIT");
+            System.out.println("\t1 . SHOW CARS\t2 . EDIT NAME\t3 . EDIT PRICE\t4 . EXIT");
             System.out.println("==============================================================================");
             System.out.print("ENTER CHOICE : "+reset);
             choice = sc.nextInt();
@@ -59,6 +59,10 @@ public class admin {
         System.out.print(BLUE+"ENTER ID OF CAR : "+reset);
         int id = sc.nextInt();
         sc.nextLine();
+        if(id>stock.length-1){
+            System.out.println("NO CAR WITH ID " + id);
+            return;
+        }
         stock[id-1].display();
         System.out.print(BLUE+"ENTER NEW NAME : "+reset);
         stock[id-1].car_name = sc.nextLine();
@@ -68,6 +72,10 @@ public class admin {
         System.out.print(BLUE+"ENTER ID OF CAR : "+reset);
         int id = sc.nextInt();
         sc.nextLine();
+        if(id>stock.length-1){
+            System.out.println("NO CAR WITH ID " + id);
+            return;
+        }
         stock[id-1].display();
         System.out.print(BLUE+"ENTER NEW PRICE : "+reset);
         stock[id-1].car_price = sc.nextDouble();

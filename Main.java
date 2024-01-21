@@ -63,8 +63,8 @@ public class Main {
     
     static int starting(){
         Scanner sc = new Scanner(System.in);
-        System.out.println(YELLOW+"=========================WELCOME=========================");
-        System.out.println("1 . << ADMIN >>\t 2 . << CUSTOMER >>");
+        System.out.println(YELLOW+"\n=========================WELCOME=========================");
+        System.out.println("\t1 << ADMIN >>\t     2 << CUSTOMER >>");
         System.out.println("=========================================================");
         System.out.print("\nENTER YOUR CHOICE : "+reset);
         int intial_choice = sc.nextInt();
