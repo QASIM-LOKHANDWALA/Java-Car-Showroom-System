@@ -75,35 +75,35 @@ public class Main {
     static void menu(){
         Scanner sc = new Scanner(System.in);
         Car car = new Car();
-        Car[] Stock = car.store();
+        ArrayList<Car> Stock = car.store();
         int c = 0;
         while (c!=5) {
             System.out.println(GREEN+"\n==============================================================================");
-            System.out.println("1 . SEARCH BY COMPANY\t 2 . SEARCH BY NAME\t 3 . SHOW CARS\n4 . SEARCH BY PRICE\t 5 . PURCHASE      \t 6 . SERVICES");
+            System.out.println("1 . SEARCH CAR  \t 2 . SHOW CARS   \t 3 . PURCHASE    \n4 . SERVICE CAR  \t 5 . RENT        \t 6 . DEEP CLEANING");
             System.out.println("===============================< 7 . EXIT >===================================");
             System.out.print("\nENTER YOUR CHOICE : "+reset);
             c = sc.nextInt();
             System.out.println();
             switch (c) {
                 case 1:
-                    car.search_by_company(Stock);
+                    search();
                 break;
                 case 2:
-                    car.search_by_name(Stock);
-                break;
-                case 3:
                     car.display_all_cars(Stock);
                 break;
-                case 4:
-                    car.search_by_price(Stock);
-                break;
-                case 5:
+                case 3:
                     purchase p = new purchase();
                     p.purchase_car(Stock);
                 break;
-                case 6:
+                case 4:
                     services s = new services();
                     s.showMenu();
+                break;
+                case 5:
+                    
+                break;
+                case 6:
+                    
                 break;
                 case 7:
                 return;
@@ -196,5 +196,30 @@ public class Main {
         userData.add(c);
         size++;
          
+    }
+    //  SEARCH METHOD
+    static void search(){
+        Car car = new Car();
+        ArrayList<Car> Stock = car.store();
+        Scanner sc = new Scanner(System.in);
+        System.out.println(YELLOW+"\n==============================================================================");
+        System.out.println("1 . SEARCH BY NAME\t 2 . SEARCH BY COMPANY\t 3 . SEARCH BY PRICE");
+        System.out.println("==============================================================================");
+        System.out.print("\nENTER YOUR CHOICE : "+reset);
+        int s = sc.nextInt();
+        switch (s) {
+            case 1:
+                car.search_by_name(Stock);
+            break;
+            case 2:
+                car.search_by_company(Stock);
+            break;
+            case 3:
+                car.search_by_price(Stock);
+            break;
+            default:
+                System.out.println("INVALID INPUT");
+            break;
+        }
     }
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class admin {
@@ -6,7 +7,7 @@ public class admin {
     final static String reset = "\u001b[0m";
     Scanner sc = new Scanner(System.in);
     Car c = new Car();
-    Car[] stock = c.store();
+    ArrayList<Car> stock = c.store();
     String userName = "admin";
     String password = "admin123";
     void adminLogin(){
@@ -59,26 +60,26 @@ public class admin {
         System.out.print(BLUE+"ENTER ID OF CAR : "+reset);
         int id = sc.nextInt();
         sc.nextLine();
-        if(id>stock.length-1){
+        if(id>stock.size()-1){
             System.out.println("NO CAR WITH ID " + id);
             return;
         }
-        stock[id-1].display();
+        stock.get(id-1).display();
         System.out.print(BLUE+"ENTER NEW NAME : "+reset);
-        stock[id-1].car_name = sc.nextLine();
-        stock[id-1].display();
+        stock.get(id-1).car_name = sc.nextLine();
+        stock.get(id-1).display();
     }
     void editPrice(){
         System.out.print(BLUE+"ENTER ID OF CAR : "+reset);
         int id = sc.nextInt();
         sc.nextLine();
-        if(id>stock.length-1){
+        if(id>stock.size()-1){
             System.out.println("NO CAR WITH ID " + id);
             return;
         }
-        stock[id-1].display();
+        stock.get(id-1).display();
         System.out.print(BLUE+"ENTER NEW PRICE : "+reset);
-        stock[id-1].car_price = sc.nextDouble();
-        stock[id-1].display();
+        stock.get(id-1).car_price = sc.nextDouble();
+        stock.get(id-1).display();
     }
 }

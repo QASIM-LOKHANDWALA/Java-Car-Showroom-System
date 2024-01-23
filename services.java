@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -6,7 +7,7 @@ public class services {
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     Car car = new Car();
-    Car[] arr = car.store();
+    ArrayList<Car> arr = car.store();
     String carName;
     double repairCost;
     int repairDays;
@@ -23,8 +24,8 @@ public class services {
     void checkAvailability(){
         boolean check = false;
         int i;
-        for(i=0 ; i<arr.length ; i++){
-            if(this.carName.equalsIgnoreCase(arr[i].car_name)){
+        for(i=0 ; i<arr.size() ; i++){
+            if(this.carName.equalsIgnoreCase(arr.get(i).car_name)){
                 check = true;
                 break;
             }
@@ -38,7 +39,7 @@ public class services {
     }
     //  ESTIMATE THE TIME AND COST FOR REPAIR
     void estimate(int i){
-        double cost = arr[i].car_price;
+        double cost = arr.get(i).car_price;
         if(cost<=1000000){
             this.repairCost = 3500;
             this.repairDays = 1+random.nextInt(4);

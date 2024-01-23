@@ -6,18 +6,18 @@ class purchase{
     final static String CYAN = "\u001b[36m";
     final static String reset = "\u001b[0m";
     Scanner sc = new Scanner(System.in);
-    void purchase_car(Car c[]){
+    void purchase_car(ArrayList<Car> c){
         boolean flag = true;
         System.out.println(YELLOW+"================================== Welcome ===================================\n");
         while(flag){
             System.out.print("Enter Car ID to purchase the Car : "+reset);
             int selected_car = sc.nextInt();
             sc.nextLine();
-            for(int i = 0 ; i<c.length ; i++){
-                if(selected_car == c[i].car_id){
+            for(int i = 0 ; i<c.size() ; i++){
+                if(selected_car == c.get(i).car_id){
                     flag = false;
                     System.out.println(YELLOW+"Your Selected Car  : "+reset);
-                    c[i].display();
+                    c.get(i).display();
                     String temp;
                     while(true){
                         System.out.print(GREEN+"\nDo you want to purchase this Car (If yes enter 'Y' or no enter 'N') : "+reset);
@@ -36,7 +36,7 @@ class purchase{
                         System.out.print("Enter Choice : "+reset);
                         int ch = sc.nextInt();
                         if(ch==1){
-                            emi(c[i].car_price);
+                            emi(c.get(i).car_price);
                         }
                         else if(ch==2){
                             System.out.println(GREEN+"Submit Your Payment On The Billing Desk!!"+reset);
