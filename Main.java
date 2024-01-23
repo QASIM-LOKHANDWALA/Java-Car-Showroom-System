@@ -60,12 +60,12 @@ public class Main {
         }
     }        
         
-    
+    //  METHOD TO DISPLAY CUSTOMER OR ADMIN
     static int starting(){
         Scanner sc = new Scanner(System.in);
-        System.out.println(YELLOW+"\n=========================WELCOME=========================");
-        System.out.println("\t1 << ADMIN >>\t     2 << CUSTOMER >>");
-        System.out.println("=========================================================");
+        System.out.println(YELLOW+"\n===================================WELCOME====================================");
+        System.out.println("\t\t1 << ADMIN >>\t\t     2 << CUSTOMER >>");
+        System.out.println("==============================================================================");
         System.out.print("\nENTER YOUR CHOICE : "+reset);
         int intial_choice = sc.nextInt();
          
@@ -115,9 +115,9 @@ public class Main {
     //  STARTING OF APPLICATION
     static public int homePage(){
         Scanner sc = new Scanner(System.in);
-        System.out.println(YELLOW+"=========================WELCOME=========================");
-        System.out.println("1 . << REGISTER >>\t 2 . << LOGIN >>");
-        System.out.println("=========================================================");
+        System.out.println(YELLOW+"\n===================================WELCOME====================================");
+        System.out.println("\t\t1 . << REGISTER >>\t\t2 . << LOGIN >>");
+        System.out.println("==============================================================================");
         System.out.print("\nENTER YOUR CHOICE : "+reset);
         int intial_choice = sc.nextInt();
          
