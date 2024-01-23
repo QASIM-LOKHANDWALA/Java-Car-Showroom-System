@@ -10,19 +10,18 @@ class Car {
     double car_price;
     String car_company;
     void display(){
-        System.out.println("==============================================================================");
-
-        System.out.println("CAR ID = "+car_id);
-        System.out.println("CAR COMPANY NAME = "+car_company);
-        System.out.println("CAR NAME = "+car_name);
-        System.out.println("CAR PRICE = Rs "+car_price);
-        System.out.println("==============================================================================");
+        System.out.println(YELLOW+"=============================================================================="+reset);
+        System.out.println(GREEN+"CAR ID : "+car_id);
+        System.out.println("CAR COMPANY NAME : "+car_company);
+        System.out.println("CAR NAME : "+car_name);
+        System.out.println("CAR PRICE : Rs "+car_price+reset);
+        System.out.println(YELLOW+"=============================================================================="+reset);
     }
     void search_by_company(Car[] c){
         boolean flag = false;
-        System.out.print("Enter Company Name To Search = ");
+        System.out.print(YELLOW+"Enter Company Name To Search : "+reset);
         String search = sc.nextLine();
-        System.out.println("Your Searched Car Is :");
+        System.out.println(YELLOW+"Your Searched Car Is :"+reset);
         for(int i= 0;i<c.length;i++){
             if(search.equalsIgnoreCase(c[i].car_company))
             {
@@ -31,13 +30,13 @@ class Car {
             }
         }
         if(flag == false){
-            System.out.println("No Car Availabe for these Company");
+            System.out.println(YELLOW+"No Car Availabe for this Company"+reset);
         }
     }
     void search_by_name(Car[] c){
-        System.out.print("Enter Car Name To Search : ");
+        System.out.print(YELLOW+"Enter Car Name To Search : "+reset);
         String search = sc.nextLine();
-        System.out.println("Your Searched Car Is :");
+        System.out.println(YELLOW+"Your Searched Car Is :"+reset);
         boolean flag = false;
         for(int i= 0;i<c.length;i++){
             if(search.equalsIgnoreCase(c[i].car_name))
@@ -47,15 +46,15 @@ class Car {
             }
         }
         if(flag == false){
-            System.out.println("No Car Availabe for these Name");
+            System.out.println(YELLOW+"No Car Availabe for these Name"+reset);
         }
     }
     void search_by_price(Car[] c){
-        System.out.println("Select Price Range From Below List");
+        System.out.println(YELLOW+"Select Price Range From Below List");
         System.out.println("1. Less Than 10 Lakh");
         System.out.println("2. 10 Lakh to 30 Lakh");
         System.out.println("3. 30 Lakh to 50 Lakh");
-        System.out.print("Enter Choice : ");
+        System.out.print("Enter Choice : "+reset);
         int search = sc.nextInt();
         for(int i= 0;i<c.length;i++) {
             if(search == 1){
@@ -77,7 +76,7 @@ class Car {
                 }
             }
             else{
-                System.out.println("No car available for these price range");
+                System.out.println(YELLOW+"No car available for these price range"+reset);
             }
         }
     }

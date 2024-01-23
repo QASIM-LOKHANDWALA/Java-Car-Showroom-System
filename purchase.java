@@ -1,7 +1,7 @@
 import java.util.*;
 
 class purchase{
-    final static String RED = "\u001b[31;1m";
+    final static String GREEN = "\u001b[32;1m";
     final static String YELLOW = "\u001b[33m";
     final static String CYAN = "\u001b[36m";
     final static String reset = "\u001b[0m";
@@ -10,17 +10,17 @@ class purchase{
         boolean flag = true;
         System.out.println(YELLOW+"================================== Welcome ===================================\n");
         while(flag){
-            System.out.print("Enter Car ID to purchase the Car = ");
+            System.out.print("Enter Car ID to purchase the Car : "+reset);
             int selected_car = sc.nextInt();
             sc.nextLine();
             for(int i = 0 ; i<c.length ; i++){
                 if(selected_car == c[i].car_id){
                     flag = false;
-                    System.out.println("Your Selected Car  : ");
+                    System.out.println(YELLOW+"Your Selected Car  : "+reset);
                     c[i].display();
                     String temp;
                     while(true){
-                        System.out.print("\nDo you want to purchase this Car (If yes enter 'Y' or no enter 'N') : ");
+                        System.out.print(GREEN+"\nDo you want to purchase this Car (If yes enter 'Y' or no enter 'N') : "+reset);
                         temp = sc.nextLine();
                         if(temp.equalsIgnoreCase("Y")||temp.equalsIgnoreCase("N")){
                             break;
@@ -30,16 +30,16 @@ class purchase{
                         }
                     }
                     if(temp.equalsIgnoreCase("Y")){
-                        System.out.println("\nSelect Payment Mode ");
+                        System.out.println(YELLOW+"\nSelect Payment Mode ");
                         System.out.println("1. EMI");
                         System.out.println("2. Cash");
-                        System.out.print("Enter Choice : ");
+                        System.out.print("Enter Choice : "+reset);
                         int ch = sc.nextInt();
                         if(ch==1){
                             emi(c[i].car_price);
                         }
                         else if(ch==2){
-                            System.out.println("Submit Your Payment On The Billing Desk!!");
+                            System.out.println(GREEN+"Submit Your Payment On The Billing Desk!!"+reset);
                         }
                     }
                     else{
@@ -51,12 +51,12 @@ class purchase{
         }
     }
     void emi(double amount){
-        System.out.println("\n=============================================================================");
+        System.out.println(YELLOW+"\n=============================================================================");
         System.out.println("\t\t\tSELECT DURATION OF EMI");
         System.out.println("\t\t\t   1. 24 Months ");
         System.out.println("\t\t\t   2. 48 Months ");
         System.out.println("\t\t   (Rate Of Interest per month is 9%)\n");
-        System.out.print("ENTER CHOICE = ");
+        System.out.print("ENTER CHOICE : "+reset);
         int choice = sc.nextInt();
         if(choice!=1 && choice!=2){
             System.out.println("INVALID CHOICE");
@@ -82,12 +82,12 @@ class purchase{
             for(int x=0 ; x<50 ; x++){
                 System.out.println();
             }
-            System.out.println("\n--------------------------------------------------------------------------------");
-            System.out.println("\t\tName : "+Main.userData.get(Main.index).name+"                              \t\t");
-            System.out.println("\t\tMobile number : "+Main.userData.get(Main.index).mobileNumber+"                           \t\t");
-            System.out.printf("\t\tYour Monthly EMI is : Rs %.2f           \t\t\t\n",emi);
-            System.out.printf("\t\tTotal Amount after adding Interest : Rs %.2f\t\t\n",(emi*tenureInYears*12));
-            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println(GREEN+"\n--------------------------------------------------------------------------------");
+            System.out.println("\t\tName : "+reset+Main.userData.get(Main.index).name+"                              \t\t");
+            System.out.println(GREEN+"\t\tMobile number : "+reset+Main.userData.get(Main.index).mobileNumber+"                           \t\t");
+            System.out.printf("%s\t\tYour Monthly EMI is %s: Rs %.2f           \t\t\t\n",GREEN,reset,emi);
+            System.out.printf("%s\t\tTotal Amount after adding Interest :%s Rs %.2f\t\t\n",GREEN,reset,(emi*tenureInYears*12));
+            System.out.println(GREEN+"--------------------------------------------------------------------------------"+reset);
         }
         
     }

@@ -30,10 +30,10 @@ public class services {
             }
         }
         if (check) {
-            System.out.println("Services are available!");
+            System.out.println(GREEN+"SERVICES ARE AVAILABLE"+reset);
             estimate(i);
         }else{
-            System.out.println("Services are not available!");
+            System.out.println(GREEN+"SERVICES ARE NOT AVAILABLE"+reset);
         }
     }
     //  ESTIMATE THE TIME AND COST FOR REPAIR
