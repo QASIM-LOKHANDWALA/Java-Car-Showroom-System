@@ -31,11 +31,11 @@ public class admin {
     }
     void makeChanges(){
         int choice = 0;
-        while (choice!=4) {
+        while (choice!=5) {
             System.out.println(BLUE+"\nWHAT WOULD YOU LIKE TO DO ?");
             System.out.println("\n==============================================================================");
-            System.out.println("\t1 . SHOW CARS\t2 . EDIT NAME\t3 . EDIT PRICE\t4 . EXIT");
-            System.out.println("==============================================================================");
+            System.out.println("\t1 . SHOW CARS\t2 . EDIT NAME\t3 . EDIT PRICE\t4 . ADD CAR");
+            System.out.println("===============================< 5 . EXIT >===================================");
             System.out.print("ENTER CHOICE : "+reset);
             choice = sc.nextInt();
             switch (choice) {
@@ -49,12 +49,29 @@ public class admin {
                     editPrice();
                 break;
                 case 4:
-                    System.out.println(YELLOW+"\n\nOPERATION COMPLETED SUCCESSFULLY"+reset);
+                    addCar();
+                break;
+                case 5:
+                    System.out.println(YELLOW+"\n\nOPERATION COMPLETED SUCCESSFULLY\n\n"+reset);
+                    Main.main(null);
                 break;
                 default:
                 break;
             }
         }
+    }
+    void addCar() {
+        Scanner sc = new Scanner(System.in);
+        Car c = new Car();
+        System.out.print(YELLOW+"\nENTER CAR COMPANY : "+reset);
+        c.car_company = sc.nextLine();
+        System.out.print(YELLOW+"ENTER CAR NAME : "+reset);
+        c.car_name = sc.nextLine();
+        System.out.print(YELLOW+"ENTER CAR PRICE : "+reset);
+        c.car_price = sc.nextInt();
+        c.car_id = stock.size()+1;
+        stock.add(c);
+        stock.get(stock.size()-1).display();
     }
     void editName(){
         System.out.print(BLUE+"ENTER ID OF CAR : "+reset);

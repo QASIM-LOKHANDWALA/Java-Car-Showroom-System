@@ -77,7 +77,7 @@ public class Main {
         Car car = new Car();
         ArrayList<Car> Stock = car.store();
         int c = 0;
-        while (c!=5) {
+        while (c!=7) {
             System.out.println(GREEN+"\n==============================================================================");
             System.out.println("1 . SEARCH CAR  \t 2 . SHOW CARS   \t 3 . PURCHASE    \n4 . SERVICE CAR  \t 5 . RENT        \t 6 . DEEP CLEANING");
             System.out.println("===============================< 7 . EXIT >===================================");
@@ -100,7 +100,7 @@ public class Main {
                     s.showMenu();
                 break;
                 case 5:
-                    
+                    new rentCar().showMenu();
                 break;
                 case 6:
                     
