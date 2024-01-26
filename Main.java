@@ -139,18 +139,29 @@ public class Main {
             }
             System.out.print("Enter User ID: ");
             id = sc.next();
-            System.out.print("Enter password: ");
-            pass = sc.next();
+            boolean isAvailable = false;
             for(int i=0 ; i<userData.size() ; i++){
-                if(!(id.equals(userData.get(i).id) && pass.equals(userData.get(i).password))){
-                    continue;
-                }else{
-                    index=i;
-                    log = true;
-                    break;
+                if(id.equals(userData.get(i).id)){
+                    isAvailable = true;
                 }
             }
-            z++;
+            if(isAvailable){
+                System.out.print("Enter password: ");
+                pass = sc.next();
+                for(int i=0 ; i<userData.size() ; i++){
+                    if(!(id.equals(userData.get(i).id) && pass.equals(userData.get(i).password))){
+                        continue;
+                    }else{
+                        index=i;
+                        log = true;
+                        break;
+                    }
+                }
+                z++;
+            }else{
+                System.out.println("\nUSER ID NOT FOUND!\n");
+            }
+            
         }
          
     }
@@ -184,7 +195,8 @@ public class Main {
                 }
             }
         }
-        verifyMobileNo(mno,name);
+        new popup().verifyMobile(mno, name);
+        //verifyMobileNo(mno,name);
     }
     static void verifyMobileNo(String mno,String name){
         Scanner sc = new Scanner(System.in);

@@ -99,5 +99,20 @@ public class rentCar {
         System.out.println(GREEN+"\t\tDays : "+reset+days);
         System.out.println(GREEN+"\t\tTotal Price : "+reset+totalPrice);
         System.out.println(GREEN+"--------------------------------------------------------------------------------"+reset);
+        downPayment();
+    }
+    void downPayment(){
+        Scanner sc = new Scanner(System.in);
+        boolean check = true;
+        while (check) {
+            System.out.println(YELLOW+"YOU HAVE TO PAY 50% ADVANCE"+reset);
+            System.out.print(YELLOW+"ENTER MOBILE NUMBER : "+reset);
+            long upi = sc.nextLong();
+            System.out.print(YELLOW+"ENTER PASSWORD : "+reset);
+            int pass = sc.nextInt();
+            System.out.printf(GREEN+"%.2f HAS BEEN DEBITED FROM YOUR ACCOUNT\n"+reset,(totalPrice*50)/100.0);
+            check=false;
+        }
+
     }
 }
