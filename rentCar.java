@@ -99,20 +99,25 @@ public class rentCar {
         System.out.println(GREEN+"\t\tDays : "+reset+days);
         System.out.println(GREEN+"\t\tTotal Price : "+reset+totalPrice);
         System.out.println(GREEN+"--------------------------------------------------------------------------------"+reset);
+        System.out.println(YELLOW+"\nYOU HAVE TO PAY 50% ADVANCE\n"+reset);
         downPayment();
     }
     void downPayment(){
         Scanner sc = new Scanner(System.in);
-        boolean check = true;
-        while (check) {
-            System.out.println(YELLOW+"YOU HAVE TO PAY 50% ADVANCE"+reset);
-            System.out.print(YELLOW+"ENTER MOBILE NUMBER : "+reset);
-            long upi = sc.nextLong();
-            System.out.print(YELLOW+"ENTER PASSWORD : "+reset);
-            int pass = sc.nextInt();
-            System.out.printf(GREEN+"%.2f HAS BEEN DEBITED FROM YOUR ACCOUNT\n"+reset,(totalPrice*50)/100.0);
-            check=false;
+        System.out.print(YELLOW+"ENTER CARD NUMBER : "+reset);
+        String card = sc.next();
+        if(card.length()!=16){
+            System.out.println(YELLOW+"\nINVALID CARD NUMBER\n"+reset);
+            downPayment();
+        }else{
+            System.out.print(YELLOW+"ENTER CVV : "+reset);
+            String cvv = sc.next();
+            if(cvv.length()!=3){
+                System.out.println(YELLOW+"\nINVALID CVV\n"+reset);
+                downPayment();
+            }else{
+                System.out.printf(GREEN+"%.2f HAS BEEN DEBITED FROM YOUR ACCOUNT\n"+reset,(totalPrice*50)/100.0);
+            }
         }
-
     }
 }
