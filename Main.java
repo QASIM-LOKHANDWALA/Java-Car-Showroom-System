@@ -195,13 +195,15 @@ public class Main {
                 }
             }
         }
-        new popup().verifyMobile(mno, name);
-        //verifyMobileNo(mno,name);
+        while(!verifyMobileNo(mno,name)){
+            JOptionPane.showMessageDialog(null, "WRONG OTP", "INVALID", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
-    static void verifyMobileNo(String mno,String name){
+    static boolean verifyMobileNo(String mno,String name){
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
-        int otp = 1000+random.nextInt(10000);
+        int otp = 1000+random.nextInt(9000);
         JOptionPane.showMessageDialog(null, "YOUR OTP IS : "+otp, "VERIFT", JOptionPane.PLAIN_MESSAGE);
         String enteredOtp = JOptionPane.showInputDialog(null,"ENTER OTP ","enter here");
         if(otp == Integer.parseInt(enteredOtp)){
@@ -219,8 +221,9 @@ public class Main {
             customer c = new customer(userId, name, pass, mno);
             userData.add(c);
             size++;
+            return true;
         }else{
-            JOptionPane.showMessageDialog(null, "WRONG OTP", "INVALID", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
     }
     //  SEARCH METHOD

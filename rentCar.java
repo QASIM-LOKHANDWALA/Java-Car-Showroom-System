@@ -1,5 +1,12 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class rentCar {
     final static String GREEN = "\u001b[32;1m";
@@ -99,7 +106,7 @@ public class rentCar {
         System.out.println(GREEN+"\t\tDays : "+reset+days);
         System.out.println(GREEN+"\t\tTotal Price : "+reset+totalPrice);
         System.out.println(GREEN+"--------------------------------------------------------------------------------"+reset);
-        System.out.println(YELLOW+"\nYOU HAVE TO PAY 50% ADVANCE\n"+reset);
+        System.out.println(YELLOW+"\nYOU HAVE TO PAY 50% ADVANCE\nPLEASE PAY "+GREEN+"Rs "+(int)(totalPrice/2)+reset);
         downPayment();
     }
     void downPayment(){
