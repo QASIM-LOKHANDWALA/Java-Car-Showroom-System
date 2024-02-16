@@ -1,15 +1,9 @@
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
-
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 public class rentCar {
     final static String GREEN = "\u001b[32;1m";
+    final static String RED = "\033[1;31m";
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
 
@@ -25,7 +19,7 @@ public class rentCar {
         while (choice!=0) {
             System.out.println(YELLOW+"\n==============================================================================");
             System.out.println("\t\t1 . VIEW CARS\t\t2 . RENT CAR");
-            System.out.println("===============================< 0 . EXIT >===================================");
+            System.out.println("===============================<"+RED+" 0 . EXIT "+YELLOW+">===================================");
             System.out.print("ENTER CHOICE : "+reset);
             choice = sc.nextInt();
             
@@ -50,8 +44,9 @@ public class rentCar {
         int choice = -1;
         while (choice!=0) {
             System.out.println(YELLOW+"\n==============================================================================");
-            System.out.println("\t\t1 . NORMAL\t2 . LUXURY\t3 . DELUX");
-            System.out.println("===============================< 0 . EXIT >===================================");
+            System.out.println("\t\t1 . ECONOMY\t2 . LUXURY\t3 . DELUX");
+            System.out.println(GREEN+"\t\t(5000 Rs)\t(7000 Rs)\t(10000 Rs)"+reset);
+            System.out.println(YELLOW+"===============================<"+RED+" 0 . EXIT "+YELLOW+">===================================");
             System.out.print("ENTER CHOICE : "+reset);
             choice = sc.nextInt();
             switch (choice) {
@@ -111,19 +106,19 @@ public class rentCar {
     }
     void downPayment(){
         Scanner sc = new Scanner(System.in);
-        System.out.print(YELLOW+"ENTER CARD NUMBER : "+reset);
+        System.out.print(YELLOW+"\nENTER CARD NUMBER : "+reset);
         String card = sc.next();
         if(card.length()!=16){
-            System.out.println(YELLOW+"\nINVALID CARD NUMBER\n"+reset);
+            System.out.println(RED+"\nINVALID CARD NUMBER\n"+reset);
             downPayment();
         }else{
             System.out.print(YELLOW+"ENTER CVV : "+reset);
             String cvv = sc.next();
             if(cvv.length()!=3){
-                System.out.println(YELLOW+"\nINVALID CVV\n"+reset);
+                System.out.println(RED+"\nINVALID CVV"+reset);
                 downPayment();
             }else{
-                System.out.printf(GREEN+"%.2f HAS BEEN DEBITED FROM YOUR ACCOUNT\n"+reset,(totalPrice*50)/100.0);
+                System.out.printf(RED+"%.2f HAS BEEN DEBITED FROM YOUR ACCOUNT\n"+reset,(totalPrice*50)/100.0);
             }
         }
     }

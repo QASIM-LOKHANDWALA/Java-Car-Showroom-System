@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Main {
     final static String GREEN = "\u001b[32;1m";
+    final static String RED = "\033[1;31m";
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     static int size=5;
@@ -27,7 +28,7 @@ public class Main {
             if(startingChoice==1 || startingChoice==2){
                 break;
             }else{
-                System.out.println("INVALID CHOICE");
+                System.out.println(RED+"INVALID CHOICE"+reset);
                 startingChoice = starting();
             }
         }
@@ -82,7 +83,7 @@ public class Main {
         while (c!=7) {
             System.out.println(GREEN+"\n==============================================================================");
             System.out.println("1 . SEARCH CAR  \t 2 . SHOW CARS   \t 3 . PURCHASE    \n4 . SERVICE CAR  \t 5 . RENT        \t 6 . DEEP CLEANING");
-            System.out.println("===============================< 7 . EXIT >===================================");
+            System.out.println("===============================<"+RED+" 7 . EXIT "+GREEN+">===================================");
             System.out.print("\nENTER YOUR CHOICE : "+reset);
             c = sc.nextInt();
             System.out.println();
@@ -135,9 +136,9 @@ public class Main {
         int z=0;
         while (!log) {
             if(z>0){
-                System.out.println("\nINAVLID USER ID OR PASSWORD !!\n");
+                System.out.println(RED+"\nINAVLID USER ID OR PASSWORD !!\n"+reset);
             }
-            System.out.print("Enter User ID: ");
+            System.out.print(YELLOW+"Enter User ID: "+reset);
             id = sc.next();
             boolean isAvailable = false;
             for(int i=0 ; i<userData.size() ; i++){
@@ -146,7 +147,7 @@ public class Main {
                 }
             }
             if(isAvailable){
-                System.out.print("Enter password: ");
+                System.out.print(YELLOW+"Enter password: "+reset);
                 pass = sc.next();
                 for(int i=0 ; i<userData.size() ; i++){
                     if(!(id.equals(userData.get(i).id) && pass.equals(userData.get(i).password))){
@@ -159,7 +160,7 @@ public class Main {
                 }
                 z++;
             }else{
-                System.out.println("\nUSER ID NOT FOUND!\n");
+                System.out.println(RED+"\nUSER ID NOT FOUND!\n"+reset);
             }
             
         }
@@ -170,15 +171,15 @@ public class Main {
         boolean check = true;
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Name: ");
+        System.out.print(YELLOW+"Enter Name: "+reset);
         String name = sc.nextLine();
         String mno = "";
 
         while (true) {
-            System.out.print("Enter Mobile Number: ");
+            System.out.print(YELLOW+"Enter Mobile Number: "+reset);
             mno = sc.next();
             if(mno.length()!=10){
-                System.out.println("INVALID LENGTH");
+                System.out.println(RED+"INVALID LENGTH"+reset);
             }else if(mno.length()==10){
                 for(int i=0 ; i<10 ; i++){
                     if(mno.charAt(i)<='9' && mno.charAt(i)>='0'){
@@ -189,7 +190,7 @@ public class Main {
                     }
                 }
                 if(!check){
-                    System.out.println("INVALID");
+                    System.out.println(RED+"INVALID"+reset);
                 }else{
                     break;
                 }
@@ -209,14 +210,14 @@ public class Main {
         if(otp == Integer.parseInt(enteredOtp)){
             JOptionPane.showMessageDialog(null, "MOBILE NUMBER VERIFIED!","SUCCESSFUL",JOptionPane.PLAIN_MESSAGE);
 
-            System.out.print("Enter Password: ");
+            System.out.print(YELLOW+"Enter Password: "+reset);
             String pass = sc.next();
 
             String[] arr = name.split(" ");
             String userId = arr[0] + mno.charAt(7) + mno.charAt(8) + mno.charAt(9);
 
-            System.out.println("\nYOUR USER ID: " + userId);
-            System.out.println("YOUR PASSWORD: " + pass + "\n");
+            System.out.println(GREEN+"\nYOUR USER ID: " + userId);
+            System.out.println("YOUR PASSWORD: " + pass + "\n"+reset);
 
             customer c = new customer(userId, name, pass, mno);
             userData.add(c);

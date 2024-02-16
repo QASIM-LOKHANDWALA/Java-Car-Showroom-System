@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class admin {
     final static String BLUE = "\033[1;94m";
+    final static String RED = "\033[1;31m";
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     Scanner sc = new Scanner(System.in);
@@ -35,7 +36,7 @@ public class admin {
             System.out.println(BLUE+"\nWHAT WOULD YOU LIKE TO DO ?");
             System.out.println("\n==============================================================================");
             System.out.println("\t1 . SHOW CARS\t2 . EDIT NAME\t3 . EDIT PRICE\t4 . ADD CAR");
-            System.out.println("===============================< 5 . EXIT >===================================");
+            System.out.println("===============================<"+RED+" 5 . EXIT "+BLUE+">===================================");
             System.out.print("ENTER CHOICE : "+reset);
             choice = sc.nextInt();
             switch (choice) {

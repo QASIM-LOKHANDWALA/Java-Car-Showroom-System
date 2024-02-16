@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class deepCleaning {
     final static String GREEN = "\u001b[32;1m";
+    final static String RED = "\033[1;31m";
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     Car c = new Car();
@@ -15,7 +16,7 @@ public class deepCleaning {
         while (choice!=0) {
             System.out.println(YELLOW+"\n==============================================================================");
             System.out.println("\t1 . VIEW AVAILABLE CAR FOR SERVICES\t2 . BOOK CLEANING");
-            System.out.println("===============================< 0 . EXIT >===================================");
+            System.out.println("===============================<"+RED+" 0 . EXIT "+YELLOW+">===================================");
             System.out.print("ENTER CHOICE : "+reset);
             choice = sc.nextInt();
             switch (choice) {
