@@ -10,6 +10,8 @@ public class Main {
     static int size=5;
     static int index;
     static ArrayList<customer> userData = new ArrayList<>();
+    static Car car = new Car();
+    static ArrayList<Car> Stock = admin.stock;
     
     public static void main(String[] args) {
         customer c1 = new customer("qas123", "Qasim Lokhandwala", "12345", "9876543210");
@@ -22,15 +24,13 @@ public class Main {
         userData.add(c3);
         userData.add(c4);
         userData.add(c5);
-        int startingChoice = 0;
+        int startingChoice = starting();
         while (true) {
-            startingChoice = starting();
             if(startingChoice==1 || startingChoice==2){
                 break;
-            }else{
-                System.out.println(RED+"INVALID CHOICE"+reset);
-                startingChoice = starting();
             }
+            System.out.println(RED+"INVALID CHOICE"+reset);
+            startingChoice = starting();
         }
         System.out.println();
         if(startingChoice==1){
@@ -71,14 +71,11 @@ public class Main {
         System.out.println("==============================================================================");
         System.out.print("\nENTER YOUR CHOICE : "+reset);
         int intial_choice = sc.nextInt();
-         
         return intial_choice;
     } 
     //  METHOD TO SHOW STOCK
     static void menu(){
         Scanner sc = new Scanner(System.in);
-        Car car = new Car();
-        ArrayList<Car> Stock = car.store();
         int c = 0;
         while (c!=7) {
             System.out.println(GREEN+"\n==============================================================================");
@@ -229,8 +226,6 @@ public class Main {
     }
     //  SEARCH METHOD
     static void search(){
-        Car car = new Car();
-        ArrayList<Car> Stock = car.store();
         Scanner sc = new Scanner(System.in);
         System.out.println(YELLOW+"\n==============================================================================");
         System.out.println("1 . SEARCH BY NAME\t 2 . SEARCH BY COMPANY\t 3 . SEARCH BY PRICE");

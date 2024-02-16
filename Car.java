@@ -10,6 +10,7 @@ class Car {
     String car_name;
     double car_price;
     String car_company;
+    static ArrayList<Car> c;
     void display(){
         System.out.println(YELLOW+"=============================================================================="+reset);
         System.out.println(GREEN+"CAR ID : "+car_id);
@@ -83,7 +84,7 @@ class Car {
     }
 
     ArrayList<Car> store(){
-        ArrayList<Car> c = new ArrayList<>();
+        c = new ArrayList<>();
 //Maruti cars
         Car c1 = new Car();
         c1.car_id = 1;

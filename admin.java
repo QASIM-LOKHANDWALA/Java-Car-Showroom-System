@@ -7,8 +7,8 @@ public class admin {
     final static String YELLOW = "\u001b[33m";
     final static String reset = "\u001b[0m";
     Scanner sc = new Scanner(System.in);
-    Car c = new Car();
-    ArrayList<Car> stock = c.store();
+    static Car c = new Car();
+    static ArrayList<Car> stock = c.store();
     String userName = "admin";
     String password = "admin123";
     void adminLogin(){
@@ -17,7 +17,7 @@ public class admin {
         int x = 0;
         while (!(un.equals(userName) && pass.equals(pass))) {
             if(x>0){
-                System.out.println("\nINVALID CREDENTIALS");
+                System.out.println(RED+"\nINVALID CREDENTIALS"+reset);
             }
             System.out.print(BLUE+"ENTER USER NAME : "+reset);
             un = sc.next();
@@ -71,33 +71,33 @@ public class admin {
         System.out.print(YELLOW+"ENTER CAR PRICE : "+reset);
         c.car_price = sc.nextInt();
         c.car_id = stock.size()+1;
-        stock.add(c);
+        Car.c.add(c);
         stock.get(stock.size()-1).display();
     }
     void editName(){
         System.out.print(BLUE+"ENTER ID OF CAR : "+reset);
         int id = sc.nextInt();
         sc.nextLine();
-        if(id>stock.size()-1){
+        if(id>stock.size() || id<0){
             System.out.println("NO CAR WITH ID " + id);
             return;
         }
         stock.get(id-1).display();
         System.out.print(BLUE+"ENTER NEW NAME : "+reset);
-        stock.get(id-1).car_name = sc.nextLine();
+        Car.c.get(id-1).car_name = sc.nextLine();
         stock.get(id-1).display();
     }
     void editPrice(){
         System.out.print(BLUE+"ENTER ID OF CAR : "+reset);
         int id = sc.nextInt();
         sc.nextLine();
-        if(id>stock.size()-1){
+        if(id>stock.size() || id<0){
             System.out.println("NO CAR WITH ID " + id);
             return;
         }
         stock.get(id-1).display();
         System.out.print(BLUE+"ENTER NEW PRICE : "+reset);
-        stock.get(id-1).car_price = sc.nextDouble();
+        Car.c.get(id-1).car_price = sc.nextDouble();
         stock.get(id-1).display();
     }
 }
